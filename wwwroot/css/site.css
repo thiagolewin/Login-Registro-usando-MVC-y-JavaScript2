@@ -1,0 +1,62 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+.container{
+  width: 100vw;
+  height: calc(100vh - 150px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  display: flex;
+  padding: 20px 50px;
+  border-bottom: 1px solid black;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+#formLogin {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 100px 50px;
+  background-color: rebeccapurple;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#formLogin input {
+  width: 250px;
+}
+#formLogin button {
+  width: 100px;
+  height: 40px;
+  background-color: green;
+  color: white;
+  margin-top: 75px;
+}
+#formLogin a{
+  color: white;
+  text-decoration: none;
+}
+#formLogin a p:first-child {
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+#formLogin a p:last-child {
+  color: lightblue;
+}
