@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Register";
+}
+<form method="post" action='@Url.Action("IngresarRegister","Account")' id="formLogin">
+    <label for="nombre">Usuario:</label>
+    <input type="text" id="usuario" name="usuario" required>
+    <label for="nombre">Contraseña:</label>
+    <input type="password" id="contraseña" name="contraseña" required>
+    <label for="nombre">Repetir Contraseña:</label>
+    <input type="password" id="contraseñaRepetida" name="contraseñaRepetida" required>
+    <label for="nombre">Telefono:</label>
+    <input type="text" id="telefono" name="telefono" required>
+    <label for="nombre">Email:</label>
+    <input type="mail" id="email" name="email" required>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    <label for="nombre">@ViewBag.Pregunta</label>
+    <input type="text" id="personal" name="personal" required>
+    <a href='@Url.Action("Login", "Account")'><p>Ya tienes cuenta?</p><p>Logeate</p></a>
+    <p class="mensaje"></p>
+    <button type="submit">Enviar</button>
+
+</form>
+
+<script src="/js/password.js"></script>

@@ -12,13 +12,6 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-    public IActionResult Login() {
-
-        return View("Login");
-    }
-    public IActionResult Register() {
-        return View("Register");
-    }
     public IActionResult Index()
     {
         return View();

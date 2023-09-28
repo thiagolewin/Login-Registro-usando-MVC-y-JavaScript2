@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Olvide";
+}
+<form method="post" action='@Url.Action("OlvideComprobacion","Account")' id="formLogin">
+    <label for="nombre">Mail:</label>
+    <input type="text" id="mail" name="mail" required>
+     <label for="nombre">Pregunta Personal:</label>
+    <input type="password" id="personal" name="personal" required>
+    <a href='@Url.Action("Register", "Account")'><p>Registrate</p></a>
+    <a href='@Url.Action("Login", "Account")'><p>Login</p></a>
+    <button type="submit">Enviar</button>
+    @{
+            if(ViewBag.Contraseña == "Esa no es tu clave de respuesta personal") {
+                <h3>@ViewBag.Contraseña</h3>
+            } else if(ViewBag.Contraseña != null) {
+                <h3>Contraseña: @ViewBag.Contraseña</h3>
+            }
+
+        }
+</form>

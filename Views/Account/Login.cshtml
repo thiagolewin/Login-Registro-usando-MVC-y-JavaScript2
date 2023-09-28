@@ -1,13 +1,13 @@
 @{
     ViewData["Title"] = "Login";
 }
-<form method="post" action="procesar.php" id="formLogin">
+<form method="post" action='@Url.Action("ValidarLogin","Account")' id="formLogin">
     <label for="nombre">Usuario:</label>
     <input type="text" id="usuario" name="usuario" required>
      <label for="nombre">Contraseña:</label>
     <input type="password" id="contraseña" name="contraseña" required>
-    <a href='@Url.Action("Home", "Register")'><p>Eres Nuevo?</p><p>Registrate</p></a>
-    <a href='@Url.Action("Home", "Register")'>Olvide mi contraseña</a>
+    <a href='@Url.Action("Register", "Account")'><p>Eres Nuevo?</p><p>Registrate</p></a>
+    <a href='@Url.Action("Olvide", "Account")'>Olvide mi contraseña</a>
     <button type="submit">Enviar</button>
 
 </form>
