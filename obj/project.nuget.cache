@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UxNF7vfjREWXBTymGN89lDxjXSjPJuTBclnlxsECL8vvdLpiWlLBzWYMhCns5Rl2abEGnblyZu5CT8I5BaRc0w==",
+  "dgSpecHash": "xAQ/YHV0pkYLk0lZqxcfujd717M/ifA1lxCUUncM7ya80vDW0shfckarE4pdjBD+0OwrwOoqK9lV/wGEhbNRvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\47393575\\Desktop\\Tp js\\Login-Registro-usando-MVC-y-JavaScript\\PrimerProyecto.csproj",
+  "projectFilePath": "C:\\Users\\47393575\\Desktop\\Login-Registro-usando-MVC-y-JavaScript2\\PrimerProyecto.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\47393575\\.nuget\\packages\\dapper\\2.0.151\\dapper.2.0.151.nupkg.sha512",
     "C:\\Users\\47393575\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

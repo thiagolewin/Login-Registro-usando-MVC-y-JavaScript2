@@ -1,7 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using PrimerProyecto.Models;
-
+using System;
+using System.Text;
+using System.Security.Cryptography;
 namespace PrimerProyecto.Controllers;
 
 public class AccountController : Controller
@@ -17,7 +19,18 @@ public class AccountController : Controller
     }
     public IActionResult Olvide() {
 
-    return View("OlvideContraseña");
+    return View("IngresarNombreOlvidar");
+    }
+    public IActionResult MailOlvide(string mail) {
+        User usuario = BD.Email(mail);
+        if(usuario != null) {
+            ViewBag.Pregunta = usuario.PreguntaPersonal;
+            ViewBag.Email = mail;
+            return View("OlvideContraseña");
+        } else {
+            ViewBag.Texto = "Ese mail no existe";
+            return View("IngresarNombreOlvidar");
+        }
     }
     public IActionResult OlvideComprobacion(string mail, string personal) {
         User usuario = BD.Olvide(mail,personal);
@@ -34,10 +47,15 @@ public class AccountController : Controller
         return View("Login");
     }
     public IActionResult ValidarLogin(string usuario, string contraseña) {
+            using (MD5 md5Hash = MD5.Create())
+            {
+                contraseña = Seguridad.GetMd5Hash(md5Hash, contraseña);
+            }
         @ViewBag.Usuario = BD.Login(usuario,contraseña);
         if(@ViewBag.Usuario != null) {
             return View("PostLogin");
         } else {
+            ViewBag.Incorrecto = "Usuario o contraseña incorrectos!";
             return View("Login");
         }
     }
@@ -54,14 +72,27 @@ public class AccountController : Controller
         @ViewBag.Pregunta = Preguntas[numeroRandom];
         return View("Register");
     }
-    public IActionResult IngresarRegister(string usuario, string contraseña, string telefono, string email, string nombre, string personal) {
-        User user = new User(usuario,contraseña,telefono,email,nombre,personal);
+    public IActionResult IngresarRegister(string usuario, string contraseña, string telefono, string email, string nombre, string personal, string preguntaPersonal) {
+        if (usuario == null || contraseña == null || telefono == null || email == null || nombre == null || personal == null || preguntaPersonal == null) {
+            ViewBag.Incorrecto = "Datos vacios!";
+             return View("Register");
+        }
+        if (BD.Username(usuario) != null) {
+              ViewBag.Incorrecto = "Nombre de usuario ya en uso";
+             return View("Register");
+        }
+         if (BD.Email(email) != null) {
+              ViewBag.Incorrecto = "Email ya en uso";
+             return View("Register");
+        }
+        using (MD5 md5Hash = MD5.Create())
+            {
+                contraseña = Seguridad.GetMd5Hash(md5Hash, contraseña);
+            }
+        User user = new User(usuario,contraseña,telefono,email,nombre,personal,preguntaPersonal);
         BD.Register(user);
         @ViewBag.Usuario = user;
-        return View("Register");
-    }
-    public IActionResult OlvideContraseña() {
-        return View("OlvideContraseña");
+       return View("PostLogin");
     }
     public IActionResult Privacy()
     {

@@ -2,10 +2,9 @@
     ViewData["Title"] = "Olvide";
 }
 <form method="post" action='@Url.Action("OlvideComprobacion","Account")' id="formLogin">
-    <label for="nombre">Mail:</label>
-    <input type="text" id="mail" name="mail" required>
-     <label for="nombre">Pregunta Personal:</label>
+     <label for="nombre">@ViewBag.Pregunta</label>
     <input type="password" id="personal" name="personal" required>
+    <input type="hidden" id="mail" name="mail" value='@ViewBag.Email' required>
     <a href='@Url.Action("Register", "Account")'><p>Registrate</p></a>
     <a href='@Url.Action("Login", "Account")'><p>Login</p></a>
     <button type="submit">Enviar</button>

@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "Olvide";
+}
+<form method="post" action='@Url.Action("MailOlvide","Account")' id="formLogin">
+    <label for="nombre">Mail:</label>
+    <input type="text" id="mail" name="mail" required>
+    <a href='@Url.Action("Register", "Account")'><p>Registrate</p></a>
+    <a href='@Url.Action("Login", "Account")'><p>Login</p></a>
+    <button type="submit">Enviar</button>
+    <p class="mensaje">@ViewBag.Texto</p>
+</form>

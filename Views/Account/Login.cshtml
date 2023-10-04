@@ -8,6 +8,7 @@
     <input type="password" id="contraseña" name="contraseña" required>
     <a href='@Url.Action("Register", "Account")'><p>Eres Nuevo?</p><p>Registrate</p></a>
     <a href='@Url.Action("Olvide", "Account")'>Olvide mi contraseña</a>
+    <p class="mensaje">@ViewBag.Incorrecto</p>
     <button type="submit">Enviar</button>
 
 </form>

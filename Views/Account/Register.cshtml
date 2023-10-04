@@ -6,8 +6,10 @@
     <input type="text" id="usuario" name="usuario" required>
     <label for="nombre">Contraseña:</label>
     <input type="password" id="contraseña" name="contraseña" required>
+    <p class="mensajepassword" style="color: yellow; fontWeight=1000"></p>
     <label for="nombre">Repetir Contraseña:</label>
     <input type="password" id="contraseñaRepetida" name="contraseñaRepetida" required>
+    <p class="mensajepasswordrepetida" style="color: yellow; fontWeight=1000"></p>
     <label for="nombre">Telefono:</label>
     <input type="text" id="telefono" name="telefono" required>
     <label for="nombre">Email:</label>
@@ -16,8 +18,9 @@
     <input type="text" id="nombre" name="nombre" required>
     <label for="nombre">@ViewBag.Pregunta</label>
     <input type="text" id="personal" name="personal" required>
+    <input type="hidden" value='@ViewBag.Pregunta' id="preguntaPersonal" name="preguntaPersonal" required >
     <a href='@Url.Action("Login", "Account")'><p>Ya tienes cuenta?</p><p>Logeate</p></a>
-    <p class="mensaje"></p>
+    <p class="mensaje">@ViewBag.Incorrecto</p>
     <button type="submit">Enviar</button>
 
 </form>
